@@ -18,13 +18,12 @@ public class Helper {
     /*
     Method that prints
      */
-    public static void printColorSets (Set<String> colorSetFirst, Set<String> colorSetSecond, Set<String> colorSetThird, Set<String> colorSetFourth) {
-        Set [] sets = {colorSetFirst, colorSetSecond, colorSetThird, colorSetFourth};
-        Iterator<Set> itr = Arrays.stream(sets).iterator();
+    public static void printColorSets (Set [] sets) {
+        Iterator<Set> iterator = Arrays.stream(sets).iterator();
         int counter = 1;
-        while (itr.hasNext()){
+        while (iterator.hasNext()){
             System.out.printf("Set #%d - ", counter);
-            System.out.println(itr.next());
+            System.out.println(iterator.next());
             counter++;
         }
     }
@@ -32,27 +31,23 @@ public class Helper {
     /*
      * Method for filling set with colors
      */
-    public static Set fillSetWithColors(Set<String> colorSet) {
+    public static void fillSetWithColors(Set<String> colorSet) {
         while (colorSet.size() < 3){
             colorSet.add(colorsArray[generateRandomNumber()]);
         }
-        return colorSet;
     }
 
     /*
      *  Method that compares sets of the colors and relill a set if it repeats
      */
 
-    public static void compareSets (Set<String> colorSetFirst, Set<String> colorSetSecond, Set<String> colorSetThird, Set<String> colorSetFourth) {
+    public static void compareSets (Set<String> colorSetFirst, Set<String> colorSetSecond, Set<String> colorSetThird,
+                                    Set<String> colorSetFourth) {
         Set [] sets = {colorSetFirst, colorSetSecond, colorSetThird, colorSetFourth};
         for (int i = 0; i < sets.length; i++) {
             for (int j = 1; j < sets.length; j++) {
                 if(!sets[i].equals(sets [j]) || j==i){
                     continue;
-                }
-                if (sets[i].equals(sets[j])){
-                    fillSetWithColors(sets[j]);
-                    j--;
                 }
             }
         }

@@ -10,14 +10,21 @@
  * Решить Задачу 17 таким образом, чтобы четыре сформированных набора были уникальны, т.е. не повторялись между собой.
  */
 
+import java.util.Set;
+
 public class Main {
     public static void main(String[] args) {
         ColorsSets colorsSets = new ColorsSets();
         ColorSetsUnique colorSetsUnique = new ColorSetsUnique();
+        Set[] sets = {colorsSets.colorSetFirst, colorsSets.colorSetSecond,
+                colorsSets.colorSetThird, colorsSets.colorSetFourth};
 
-        Helper.printColorSets(colorsSets.colorSetFirst, colorsSets.colorSetSecond, colorsSets.colorSetThird, colorsSets.colorSetFourth);
+        Set [] setsUnique = {colorSetsUnique.colorSetFirst, colorSetsUnique.colorSetSecond,
+                colorSetsUnique.colorSetThird, colorSetsUnique.colorSetFourth};
+
+        Helper.printColorSets(sets);
         System.out.println();
-        Helper.printColorSets(colorSetsUnique.colorSetFirst, colorSetsUnique.colorSetSecond, colorSetsUnique.colorSetThird, colorSetsUnique.colorSetFourth);
+        Helper.printColorSets(setsUnique);
 
 
     }
